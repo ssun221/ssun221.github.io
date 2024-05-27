@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.jpg" type="image/x-icon">
+
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <script src="./js/jquery.min.js"></script>
+
+    <title>KIMSUNJU</title>
+    <style>
+        
+        @font-face{
+            font-family: 'FRAHV';
+            src: url(./fonts/FRAHV.TTF);
+        }
+        :root{
+            font-family: 'FRAHV'; 
+            font-weight:500;
+            font-size:42px;
+            color:#000;
+            scroll-behavior:smooth;
+        }
+        /* #warp{
+            background: url(./imges/laptop-6966045_1280.jpg) no-repeat center;
+            background-size:cover;
+            background-attachment: fixed;
+        } */
+        #profile,#portfolio{
+            background:#000;
+           
+        }
+        .sec .container{
+            width:1920px;
+            height:100vh;
+            margin:0 auto;
+            padding:0 20px;
+        }
+        #header{
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            padding:42px 0;
+        }
+        #header .container{
+            display:flex;
+            justify-content: space-between;            
+            align-items:center;
+            padding:0 40px;
+        }
+        #header h1{text-indent:-99999px;}
+        #header ul{
+            display: flex;
+        }
+        #header ul li{
+            margin-left: 48px;
+        }
+        
+        
+        
+
+    
+
+
+        
+        
+        
+        
+       
+        
+       
+       
+        
+        
+       
+       
+        #home{
+            padding-top:103px;
+        }
+        #home .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #home h2{
+            font-size: 50px;
+            font-weight: 600;
+            transform:scale(0);
+            opacity:0;
+            animation: tit-ani 0.3s 1s forwards;
+        }
+        @keyframes tit-ani {
+            0%{
+                transform:scale(0);
+                opacity:0;
+            }
+            100%{
+                transform:scale(2);
+                opacity:2;
+            }
+        }
+        #home h2 span{
+            padding-left: 61px;
+        }
+        #profile{
+            padding-top:145px;
+        }
+        #profile .por01{
+            text-align: center;
+            margin-bottom: 100px;
+        }
+        #profile .row{
+            position: relative;
+            width: 932px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;            
+            transform: translate(-100px, -100px);
+            opacity:0;     
+            transition:0.3s;
+        }
+        #profile .row.active{
+            transform: translate(0, 0);
+            opacity:1;
+        }
+
+
+        
+       
+        #profile .row>.img-box{
+            width: 202px;
+        }
+        #profile .row>.list{
+            width: 655px;
+        }
+        #profile .row>.list li{
+            margin-bottom: 50px;
+            font-size: 28px;
+        }
+        #profile .row>p{
+            position: absolute; 
+            top: 100%;
+            left: 330px;      
+        }
+        #profile .row>p>span{
+            font-weight: 600;
+
+        }
+       
+
+
+        #skills{
+            padding-top:145px;
+        }
+        #skills .por01{
+            text-align: center;
+        }
+        #skills .img-box{
+            width: 115px;
+            height: 115px;
+        }
+        #skills .box01,#skills .box02{
+            display: flex;
+        }
+        #skills .box01 .img-box{
+            margin-top: 135px;
+            margin-right: 117px;
+            margin-left: 210px;
+            margin-bottom: 82px;
+        }
+        #skills .box02 .img-box{
+            margin-right: 117px;
+            margin-left: 275px;
+        }
+        #portfolio{
+            padding-top:145px;
+        }
+        #portfolio .por01{
+            text-align: center;
+            padding-bottom: 100px;
+        }
+        #portfolio .design{
+            margin-bottom:100px;
+        }
+        #portfolio h3{
+            margin-bottom:30px;
+            padding-left: 100px;
+        }
+        #portfolio .web li{
+            width: 400px;
+            height: 400px;
+        }
+        #portfolio .banner{            
+            padding-left:100px;
+            gap: 130px;
+        }
+        #portfolio .banner li{
+            width: 400px;
+            height: 50px;
+        }
+        
+        #portfolio ul{
+            display:flex;
+            align-items: center;
+            gap:25px;
+            
+        }
+        #portfolio .web {
+            margin-left:100px;
+            padding-top: 15px; 
+        }
+        #portfolio .web p{
+            font-size: 28px;
+        }
+        #portfolio .web li .img-box{
+            overflow:hidden;
+        }
+        #portfolio .web li .img-box img{
+            filter: grayscale(1);
+            transform:scale(1);
+            transition: 0.3s;
+        }
+        #portfolio .web li .img-box:hover img{
+            filter: grayscale(0);            
+            transform:scale(1.1);
+        }
+        #portfolio .banner .img-box{
+            cursor: pointer;
+        }
+        #portfolio .banner li img{
+            filter: grayscale(1);
+            transition: 0.3s;
+        }
+        #portfolio .banner li:hover img{
+            filter: grayscale(0);
+            transform: scale(1.5);
+        }
+        #home{
+            background:#9fbefc;
+        }
+        #profile{
+            background:#abc4ff ;
+        }
+        #skills{
+            background:#b6ccfe ;
+        }
+        #portfolio{
+            background:#c1d3fe;
+        }
+                
+        
+
+        
+        
+      
+       
+    </style>
+</head>
+<body>
+    <section id="warp">
+        <header id="header">
+            <div class="container">
+                <h1>김선주의 PORTFOLIO</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#home">MY PORTFOLIO</a></li>
+                        <li><a href="#profile">PROFILE</a></li>
+                        <li><a href="#skills">SKILLS</a></li>
+                        <li><a href="#portfolio">PORTFOLIO</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>   
+       <section class="sec" id="home">
+        <div class="container">
+            <h2>김선주의<br><span>PORTFOLIO</span></h2>
+        </div>
+       </section>
+       <section class="sec" id="profile">
+        <div class="container">
+            <h2 class="por01">PROFILE</h2>
+            <div class="row">
+                <div class="img-box"><img src="./imges/poto.jpg" alt="poto"></div>
+                <div class="list">
+                    <ul>
+                        <li>이름:김선주</li>
+                        <li>학력:인천 세무고등학교</li>
+                        <li>경력:인천 제이셋 스태츠칩팩 코리아</li>
+                        <li>자격증/면허증:전산회계 운용사3급,운전면허증</li>
+                    </ul>                    
+                </div>
+                <p>"저는 <span>끈기</span>로 <span>열정</span>으로 도전하는<br>준비된 인재입니다"</p>
+            </div>
+        </div>
+       </section>
+       <section class="sec" id="skills">
+        <div class="container">     
+            <h2 class="por01">SKILLS</h2>
+            <ul class="box box01">
+               <li class="img-box"><img src="./imges/css.jpg" alt="css"></li>
+               <li class="img-box"><img src="./imges/git.jpg" alt="git"></li>
+               <li class="img-box"><img src="./imges/html.jpg" alt="html"></li>
+               <li class="img-box"><img src="./imges/illustration.jpg" alt="illustration"></li>
+            </ul>
+            <ul class="box box02">
+               <li class="img-box"><img src="./imges/jQuery.jpg" alt="jQuery"></li>
+               <li class="img-box"><img src="./imges/js.jpg" alt="js"></li>
+               <li class="img-box"><img src="./imges/ps.jpg" alt="ps"></li>
+            </ul>
+            
+        </div>
+       </section>
+       <section class="sec" id="portfolio">
+        <div class="container"> 
+            <h2 class="por01">PORTFOLIO</h2>
+            <article class="art design">
+                <h3>Design</h3>
+                <ul class="banner">
+                    <li>
+                        <div class="img-box"><img src="./imges/chanel.jpg" alt="chanel"></div>                        
+                    </li>
+                    <li>
+                        <div class="img-box"><img src="./imges/sale.jpg" alt="sale"></div>
+                    </li>
+                    <li>
+                        <div class="img-box"><img src="./imges/galaxy.jpg" alt="galaxy"></div>
+                    </li>
+                </ul>
+            </article>
+            <article class="art publishing">
+                <h3>Publishing</h3>
+                <ul class="web">
+                    <li>
+                        <a href="https://github.com/ssun221/hansol" target="_blan">
+                            <div class="img-box"><img src="./imges/hansol.jpg" alt="hansol"></div>
+                            <div>
+                                <h4>hansol</h4>
+                                <p>완성도:100% </p>
+                                <p>한솔제지 홈페이지를 재구현했다</p>                       
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ssun221/hollyscoffee" target="_blan">
+                            <div class="img-box"><img src="./imges/hollys.jpg" alt="hollys"></div>
+                            <div>
+                                <h4>hollys</h4>
+                                <p>완성도:60% </p>
+                                <p>할리스 홈페이지를 기존에 맞춰서 리뉴얼 하였다</p>                            
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ssun221/tourist" target="_blan">
+                            <div class="img-box"><img src="./imges/tour.jpg" alt="tour"></div>
+                            <div>
+                                <h4>tour</h4>
+                                <p>완성도:90% </p>
+                                <p>tourist라는 홈페이지를 새롭게 구현했다</p>                            
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ssun221/paikdabang" target="_blan">
+                            <div class="img-box"><img src="./imges/paikdabang.jpg" alt="paikdabang"></div>
+                            <div>
+                                <h4>paikdabang</h4>
+                                <p>완성도:80% </p>
+                                <p>기존 빽다방 홈페이지를 재구현했다</p>                            
+                            </div>
+                        </a>
+                    </li>
+                        
+                </ul>
+            </article>
+        </div>
+       </section>        
+    </section>
+    <script>
+       $(window).scroll(function(){
+            let winScr = $(window).scrollTop();
+            if(winScr>=800){
+                $('#profile .row').addClass('active');
+            }else{
+                $('#profile .row').removeClass('active');                
+            }
+       })
+        
+    </script>
+    
+    </body>
+</html>
